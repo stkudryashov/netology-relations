@@ -6,7 +6,7 @@ from articles.models import Article
 def articles_list(request):
     template = 'articles/news.html'
     context = {
-        'object_list': Article.objects.all()
+        'object_list': Article.objects.all().prefetch_related('scopes')
     }
 
     # используйте этот параметр для упорядочивания результатов
